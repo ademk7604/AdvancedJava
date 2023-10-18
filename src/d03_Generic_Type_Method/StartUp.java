@@ -46,7 +46,6 @@ public class StartUp {
 		Helper.listeyiBas(sayilar2);
 		Helper.listeyiBas(isimler);
 		
-		
 		Helper.listeyiBas2(sayilar2);
 		Helper.listeyiBas2(isimler);
 	}
