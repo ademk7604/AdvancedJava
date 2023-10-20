@@ -25,12 +25,12 @@ public class Driver {
 		Comparator<Telefon> dahaKucukHafiza = new Comparator<Telefon>() {
 			@Override
 			public int compare(Telefon o1, Telefon o2) {
-				if(o1.getHafiza()>o2.getHafiza()) {
+				if (o1.getHafiza() > o2.getHafiza()) {
 					return 1;
 				} else {
 					return -1;
 				}
-				
+
 			}
 		};
 		Collections.sort(telefons, dahaKucukHafiza);
@@ -38,13 +38,29 @@ public class Driver {
 		System.out.println("---var olan listemizin tersini alalim hafizayi tersine---");
 		Collections.reverse(telefons);
 		Telefon.butunTelefonlariYazdir(telefons);
-		
+
 		System.out.println("-----------");
 		System.out.println("Ram' e gore kucukten buyuge siralanisi:");
-		Collections.sort(telefons, (tel1,tel2)->{if(((Telefon)tel1).getRam() > tel2.getRam()) return 1; else return -1;});
+
+		// Unterschidliche LOSUNGEN
+		// Collections.sort(telefons, (tel1,tel2)->{if(((Telefon)tel1).getRam() >
+		// tel2.getRam()) return 1; else return -1;});
+
+		// Collections.sort(telefons, Comparator.comparingInt(tel ->
+		// ((Telefon)tel).getRam()));
+		// telefons.sort(Comparator.comparingInt(tel->((Telefon) tel).getRam()));
+
+		Collections.sort(telefons, (tel1, tel2) -> ((Telefon) tel1).getRam() > tel2.getRam() ? 1 : -1);
 		Telefon.butunTelefonlariYazdir(telefons);
+
 		System.out.println("--------------");
 		Collections.reverse(telefons);
 		Telefon.butunTelefonlariYazdir(telefons);
+
+		System.out.println("--Cikis yilina gore--");
+		Collections.sort(telefons, (tel1, tel2) -> ((Telefon) tel1).getCikisYili() > tel2.getCikisYili() ? 1 : -1);
+		;
+		Telefon.butunTelefonlariYazdir(telefons);
+
 	}
 }
