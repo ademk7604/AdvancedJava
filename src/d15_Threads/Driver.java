@@ -4,9 +4,12 @@ package d15_Threads;
 class Gorev extends Thread{
 	@Override
 	public void run() {
+		Thread.currentThread().setName("-Gorev Sinifi Thread-");
 		for(int i=1; i<=20; i++) {
 			System.out.println("-Gorev sinifi -"+"Numara: " +i);
 		}
+		System.out.println("Mevcut thread bilgisi: "+Thread.currentThread().getName());
+		System.out.println("Gorev - Aktif thread sayisi: "+Thread.activeCount());
 	}
 }
 public class Driver {
@@ -40,12 +43,15 @@ public class Driver {
 		
 		
 		//JOB 2
-		
 		Gorev gorev = new Gorev();
+		System.out.println("Aktif thread sayisi: "+Thread.activeCount());
 		gorev.start(); // otoratikmen run methodu calisiyor
+		System.out.println("Aktif thread sayisi: "+Thread.activeCount());
+		System.out.println("Mevcut thread bilgisi: "+Thread.currentThread().getName());
 		
 		
 		System.out.println("Program bitti!");
+		System.out.println("Main - Aktif thread sayisi: "+Thread.activeCount());
 		
 	}
 
