@@ -1,7 +1,7 @@
 package d16_MultiThreading;
 
 public class Driver {
-	public static void main(String[] args) {
+	public static void main(String[] args) throws InterruptedException {
 		Yazici yazici =new Yazici();
 		
 		/*
@@ -16,9 +16,18 @@ public class Driver {
 		Thread gorev2 = new Thread(r2);
 		Thread gorev3 = new Thread(r3);
 		gorev1.start();
+		
+		//gorev1 threadi tmamlanan kadar bekle
+		gorev1.join(); // join methodu InterruptedException istiyor
+		
 		gorev2.start();
+		
+		//gorev2 thread i tmamlanan kadar bekle
+		gorev2.join();
+		
 		gorev3.start();
-		//Thread lerin nasil one cekilecegini gorelim
+		//Thread lerin nasil one cekilecegini gorelim. Yani sirlamasini nasil belirleyecegiz
+		//siralamayi join ile belirleyebiliyoruz
 	}
 
 }
