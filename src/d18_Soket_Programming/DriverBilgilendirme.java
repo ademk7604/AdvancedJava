@@ -1,6 +1,6 @@
 package d18_Soket_Programming;
 
-public class Driver {
+public class DriverBilgilendirme {
 	/*s.p. java ile calisan uygulamalarin haberlesmesi icin kullaniliyor
 	 * iki programin birbiri arsinda veri aktarimi gorevini goruyor
 	 * chat uygulamalari S.P. kullaniyor whatsapp
