@@ -6,9 +6,10 @@ import java.io.IOException;
 import java.net.*;
 
 public class Server {
-	private Socket socket =null;
 	
 	private ServerSocket server =null; // bu bizim sunucumuz olmayi saglayacak. soketimizi kabul edecek
+	
+	private Socket socket =null;
 	
 	private DataInputStream input =null; // server i girdi almayi saglayacagiz
 	
@@ -16,9 +17,9 @@ public class Server {
 	public Server(int port) throws IOException {
 		
 		server = new ServerSocket(port);
-		System.out.println("Sunucu baslatildi...");
+		System.out.println("Server started...");
 		
-		System.out.println("Bir cleint (istemci) bekleniyor...");
+		System.out.println("Waiting for a cleint...");
 		
 		socket =server.accept();
 		System.out.println("Bir cleint (istemci) kabul edildi!");
@@ -27,6 +28,7 @@ public class Server {
 		input = new DataInputStream(new BufferedInputStream(socket.getInputStream()));
 		
 		String metin = "";
+	
 		while(!metin.equals("Exit")) {
 			metin = input.readUTF();
 			System.out.println(metin); //burda cosola yazdiriyoruz
@@ -40,7 +42,7 @@ public class Server {
 	
 
 	public static void main(String[] args) throws IOException {
-		Server server =new Server(5002);
+		Server server =new Server(5000);
 		//Server (Sunucu) Tarafının Programlanması - 3 burda kaldim
 
 	}

@@ -20,7 +20,7 @@ public class Cleint {
 		//address imiz localhost olacak
 		//baglanti kurmak// Cleint objesi olustugu anada constructor server ile baglantiyi kurmus olacak
 		socket = new Socket(address,port); // herhangi bir hata firlatmazsa alt kodda devam edecek
-		System.out.println("Cleint sunucuya baglandi!");
+		System.out.println("Client connected to the server!");
 		
 		// System.in ile terminal uzerinde veri alalim
 		input =new DataInputStream(System.in);
@@ -29,11 +29,11 @@ public class Cleint {
 		output = new DataOutputStream(socket.getOutputStream());
 		
 		
-		String metin = "";
-		while(!metin.equals("Exit")) {
+		String text = "";
+		while(!text.equals("Exit")) {
 			try {
-				metin = input.readLine(); // sokete veri gonderiyor
-				output.writeUTF(metin); // bu sokete yazdiriyoruz
+				text = input.readLine(); // sokete veri gonderiyor
+				output.writeUTF(text); // bu sokete yazdiriyoruz
 			} catch(IOException e) {
 				System.out.println(e.getMessage());
 			}
@@ -51,7 +51,7 @@ public class Cleint {
 	}
 	
 	public static void main(String[] args) throws UnknownHostException, IOException {
-		Cleint cleint = new Cleint("127.0.0.1", 5002);
+		Cleint cleint = new Cleint("127.0.0.1", 5000);
 		
 	}
 
