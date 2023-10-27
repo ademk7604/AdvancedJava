@@ -17,19 +17,19 @@ public class Server {
 	public static void main(String[] args) throws IOException {
 	
 		ServerSocket server =new ServerSocket(PORT);
-		System.out.println("[SERVER] --> The server is waiting to connection a cleint");
+		System.out.println("[SERVER] --> The server is waiting to connection a client");
 		
-		Socket cleint = server.accept();
-		System.out.println("[SERVER] --> a Cleint connected " );
+		Socket client = server.accept();
+		System.out.println("[SERVER] --> a client connected " );
 		
-		PrintWriter output = new PrintWriter(cleint.getOutputStream(), true);
-		BufferedReader input = new BufferedReader(new InputStreamReader(cleint.getInputStream()));
+		PrintWriter output = new PrintWriter(client.getOutputStream(), true);
+		BufferedReader input = new BufferedReader(new InputStreamReader(client.getInputStream()));
 		
 		while(true) {
-			String cleintRequest =input.readLine();
-			if(cleintRequest.contains("bir kisi soyle")) {
+			String clientRequest =input.readLine();
+			if(clientRequest.contains("bir kisi soyle")) {
 				output.println(rastgeleKisiSec());
-			}else if(cleintRequest.equals("Exit")) {
+			}else if(clientRequest.equals("Exit")) {
 				output.println("Hoscakal, yine beklerinz");
 				System.out.println("Sunucu Kapatildi");
 				break;

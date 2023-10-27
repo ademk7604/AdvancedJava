@@ -7,7 +7,7 @@ import java.io.PrintWriter;
 import java.net.Socket;
 import java.net.UnknownHostException;
 
-public class Cleint {
+public class Client {
 	// ikiside birbirine veri aktarimini saglayacak bir uygulama yapalim. interaktifi saglayalim
 	private static final String SERVER_IP = "127.0.0.1";
 	private static final int PORT = 5002;
@@ -25,7 +25,7 @@ public class Cleint {
 		PrintWriter output = new PrintWriter(socket.getOutputStream(), true);
 		
 		while(true) {
-			System.out.println("Cleint reads -->");
+			System.out.println("client reads -->");
 			String komut = klavye.readLine();
 			output.println(komut); // output a klaviyeden yazdigim ekleniyor
 			String sunucuCevap = input.readLine();
